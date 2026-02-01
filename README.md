@@ -45,7 +45,13 @@ This will create the `SimpleDB` executable inside the `build` directory (or acco
 
 From the build directory where the executable was generated:
 
+Linux/Mac:
+
     ./SimpleDB
+
+Windows:
+
+    SimpleDB.exe
 
 The example `main.cpp` creates a `DocumentDB` with base path `users/`, gets the `users` collection, inserts some documents, lists all documents and performs a field search. Running will also create/update the file `users/users.json` with persisted data.
 
