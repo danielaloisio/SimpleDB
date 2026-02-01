@@ -28,7 +28,7 @@ It stores collections of documents on disk as JSON files and provides basic oper
 
 ## Requirements
 
-- C++ compiler with C++20 support (e.g., `g++` >= 10, recent `clang++`)
+- C++ compiler(e.g., `g++` >= 10, recent `clang++`)
 - `CMake` >= 3.10 (the `CMakeLists` specifies 3.31.6, so using `CMake` >= 3.31 is recommended)
 
 ## How to build
@@ -95,7 +95,7 @@ Example approximate output:
 
 ## Data location
 
-By default `DocumentDB` creates the base directory passed to the constructor (e.g.: `products/`). Each collection is stored in `<basePath><collectionName>.json` (for example `users/users.json`).
+By default `DocumentDB` creates the base directory passed to the constructor (e.g.: `users/`). Each collection is stored in `<basePath><collectionName>.json` (for example `users/users.json`).
 
 ## License
 
