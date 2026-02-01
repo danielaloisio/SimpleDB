@@ -37,9 +37,9 @@ private:
     int nextId;
     std::string dataPath;
 
-    void saveToFile();
+    void saveToFile() const;
 
-    std::string extractValue(const std::string &json, const std::string &key);
+    static std::string extractValue(const std::string &json, const std::string &key);
 
 public:
     Collection(const std::string &name,
@@ -49,7 +49,7 @@ public:
 
     int insert(const std::map<std::string, std::string> &data);
 
-    std::vector<std::shared_ptr<Document> > find(const std::string &key, const std::string &value);
+    std::vector<std::shared_ptr<Document> > find(const std::string &key, const std::string &value) const;
 
     std::vector<std::shared_ptr<Document> > findAll();
 
