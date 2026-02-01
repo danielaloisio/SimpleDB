@@ -13,7 +13,7 @@ Collection::Collection(const std::string &name, const std::string &basePath)
 void Collection::saveToFile() {
     std::ofstream file(dataPath);
     if (!file.is_open()) {
-        std::cerr << "Erro ao abrir arquivo: " << dataPath << std::endl;
+        std::cerr << "Error open file: " << dataPath << std::endl;
         return;
     }
 
@@ -24,7 +24,7 @@ void Collection::saveToFile() {
     }
     file << "]}";
     file.close();
-    std::cout << "[DISCO] Coleção '" << name << "' salva em " << dataPath << std::endl;
+    std::cout << "[DISC] Collection '" << name << "' save in " << dataPath << std::endl;
 }
 
 std::string Collection::extractValue(const std::string &json, const std::string &key) {
@@ -46,7 +46,7 @@ std::string Collection::extractValue(const std::string &json, const std::string 
 void Collection::loadFromFile() {
     std::ifstream file(dataPath);
     if (!file.is_open()) {
-        std::cout << "[DISCO] Arquivo não encontrado, criando nova coleção: " << name << std::endl;
+        std::cout << "[DISC] File not found, create new collection: " << name << std::endl;
         return;
     }
 
@@ -63,7 +63,7 @@ void Collection::loadFromFile() {
 
     size_t docStart = content.find("\"documents\":[");
     if (docStart != std::string::npos) {
-        docStart += 13; // tamanho de "documents":["
+        docStart += 13;
         size_t docEnd = content.find("]}", docStart);
         std::string docsStr = content.substr(docStart, docEnd - docStart);
 
@@ -102,8 +102,8 @@ void Collection::loadFromFile() {
         }
     }
 
-    std::cout << "[DISCO] Coleção '" << name << "' carregada com "
-            << documents.size() << " documentos" << std::endl;
+    std::cout << "[DISC] Collection '" << name << "' loaded with "
+            << documents.size() << " documents" << std::endl;
 }
 
 int Collection::insert(const std::map<std::string, std::string> &data) {
@@ -142,7 +142,7 @@ bool Collection::update(int id, const std::string &key, const std::string &value
     auto doc = findById(id);
     if (doc) {
         doc->set(key, value);
-        saveToFile(); // Salvar após atualização
+        saveToFile();
         return true;
     }
     return false;
