@@ -24,7 +24,7 @@ Collection::Collection(const std::string &name, const std::string &basePath)
     loadFromFile();
 }
 
-void Collection::saveToFile() {
+void Collection::saveToFile() const {
     std::ofstream file(dataPath);
     if (!file.is_open()) {
         std::cerr << "Error open file: " << dataPath << std::endl;
@@ -129,7 +129,7 @@ int Collection::insert(const std::map<std::string, std::string> &data) {
     return doc->getId();
 }
 
-std::vector<std::shared_ptr<Document> > Collection::find(const std::string &key, const std::string &value) {
+std::vector<std::shared_ptr<Document> > Collection::find(const std::string &key, const std::string &value) const {
     std::vector<std::shared_ptr<Document> > results;
     for (const auto &doc: documents) {
         if (doc->matches(key, value)) {

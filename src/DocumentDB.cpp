@@ -32,7 +32,7 @@ std::shared_ptr<Collection> DocumentDB::getCollection(const std::string &name) {
     return collections[name];
 }
 
-std::vector<std::string> DocumentDB::listCollections() {
+std::vector<std::string> DocumentDB::listCollections() const {
     std::vector<std::string> names;
     for (const auto &pair: collections) {
         names.push_back(pair.first);

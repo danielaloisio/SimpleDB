@@ -35,7 +35,7 @@ public:
 
     std::shared_ptr<Collection> getCollection(const std::string &name);
 
-    std::vector<std::string> listCollections();
+    std::vector<std::string> listCollections() const;
 
     bool dropCollection(const std::string &name);
 };
