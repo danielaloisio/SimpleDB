@@ -30,9 +30,9 @@ along with this program; if not, see
 
 int main() {
     std::cout << "=== Data base in disc ===" << std::endl;
-    DocumentDB db("YOUR_PATH");
+    DocumentDB db("YOUR_PATH/");
 
-    auto user = db.getCollection("user");
+    auto user = db.getCollection("YOUR_COLLECTION");
 
     std::cout << "\n=== Insert documents  ===" << std::endl;
     int id1 = user->insert({{"name", "Kobra1"}, {"age", "30"}, {"city", "Detroit"}});

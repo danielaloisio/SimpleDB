@@ -18,9 +18,11 @@ along with this program; if not, see
 
 #include "DocumentDB.h"
 
+#include <filesystem>
+
 
 DocumentDB::DocumentDB(const std::string &basePath) : basePath(basePath) {
-    system(("mkdir -p " + basePath).c_str());
+    std::filesystem::create_directory(basePath.c_str());
 }
 
 std::shared_ptr<Collection> DocumentDB::getCollection(const std::string &name) {
